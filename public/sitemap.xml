@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+    <url>
+        <loc>http://cms.test</loc>
+    
+            </url>
+    <url>
+        <loc>http://cms.test/home</loc>
+        <lastmod>2024-08-15T09:46:41+02:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://cms.test/about-us</loc>
+        <lastmod>2024-08-15T09:52:32+02:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://cms.test/privacy-policy</loc>
+        <lastmod>2024-08-15T10:05:33+02:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://cms.test/terms-and-conditions</loc>
+        <lastmod>2024-08-15T10:00:49+02:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://cms.test/contact-us</loc>
+    
+            </url>
+    <url>
+        <loc>http://cms.test/categories/without-category</loc>
+        <lastmod>2024-08-17T13:07:46+02:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://cms.test/posts/an-interesting-post</loc>
+        <lastmod>2024-08-18T11:46:55+02:00</lastmod>
+
+            </url>
+</urlset>
