@@ -8,34 +8,34 @@ This CMS was designed as a modular system using modern Laravel tooling and sever
 
 ---
 
-## Tech Stack
+# Tech Stack
 
-Backend
+## Backend
 
 - Laravel 10
-- PHP
+- PHP 8.1+
 - Jetstream
 - Livewire
 - FilamentPHP v3
 
-Frontend
+## Frontend
 
 - Blade
 - TailwindCSS
 - Vite
 
-Additional packages
+## Additional packages
 
 - Spatie Laravel Permissions
 - Spatie Translatable
 - Filament Flexible Content Blocks
 - Filament Translation Manager
 - Laravel Localization
-- SEO tools
+- SEO Tools
 
 ---
 
-## Main Features
+# Main Features
 
 - Admin panel built with **FilamentPHP**
 - Role and permission management
@@ -50,7 +50,7 @@ Additional packages
 
 ---
 
-## Project Structure
+# Project Structure
 
 ```
 app/
@@ -79,7 +79,7 @@ The project follows the typical Laravel application structure, extended with **F
 
 ---
 
-## Multilingual Support
+# Multilingual Support
 
 The CMS supports multiple languages.
 
@@ -104,7 +104,7 @@ config/filament-flexible-content-blocks.php
 
 ---
 
-## Installation
+# Installation
 
 Clone the repository:
 
@@ -112,52 +112,66 @@ Clone the repository:
 git clone https://github.com/JamDesigns/cms
 ```
 
-Navigate to the project folder:
+Navigate to the project directory:
 
 ```
 cd cms
 ```
 
-Install dependencies:
+Install the project:
 
 ```
 composer install
-npm install
 ```
 
-Create environment file:
+The `composer install` script automatically performs the following tasks:
+
+- installs PHP dependencies
+- installs Node dependencies
+- builds frontend assets
+- copies `.env.example` to `.env`
+- generates the application key
+- runs database migrations and seeders
+- synchronizes roles and permissions
+- creates the storage symbolic link
+
+After installation, start the frontend development server:
 
 ```
-cp .env.example .env
+npm run dev
 ```
 
-Generate application key:
-
-```
-php artisan key:generate
-```
-
-Run database migrations and seeders:
-
-```
-php artisan migrate --seed
-```
-
-Build frontend assets:
-
-```
-npm run build
-```
-
-Start the development server:
+Then start Laravel:
 
 ```
 php artisan serve
 ```
 
+The application will now be available locally.
+
 ---
 
-## Admin Panel
+# Default Admin Credentials
+
+After installation, the database seeder creates a default administrator account.
+
+Email:
+
+```
+admin@cms.test
+```
+
+Password:
+
+```
+password
+```
+
+For security reasons, it is recommended to create a new administrator and remove this default user.
+
+---
+
+# Admin Panel
 
 The CMS includes a full **Filament admin panel** where administrators can manage:
 
@@ -176,7 +190,7 @@ The admin panel is available at:
 
 ---
 
-## Content Management
+# Content Management
 
 Administrators can create dynamic pages using **Flexible Content Blocks**, allowing different page layouts and sections to be built without writing code.
 
@@ -191,15 +205,22 @@ Blog posts support comments and moderation.
 
 ---
 
-## SEO Integration
+# SEO Integration
 
 The CMS includes SEO tools to generate metadata for pages and blog posts.
 
 Optional AI-assisted SEO generation can be configured using OpenAI by setting credentials in the `.env` file.
 
+Example configuration:
+
+```
+OPENAI_API_KEY=
+OPENAI_ORGANIZATION=
+```
+
 ---
 
-## Educational Purpose
+# Educational Purpose
 
 This project was created as a **learning and experimentation project with Laravel and Filament**.
 
@@ -207,6 +228,6 @@ It demonstrates how to build a modern CMS using the Laravel ecosystem, including
 
 ---
 
-## License
+# License
 
 MIT
