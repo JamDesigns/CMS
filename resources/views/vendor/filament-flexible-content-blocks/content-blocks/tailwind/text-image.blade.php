@@ -1,32 +1,45 @@
-<div class="section {{ $getBackgroundColourClass() }}">
-    <div class="container mx-auto py-4">
-        <div @class(['flex flex-wrap -mx-4', 'md:flex-row-reverse' => $hasImage() && $imagePosition === 'right'])>
-            @if($hasImage())
-                <div class="w-full px-4 mb-4 md:w-1/2 md:mb-0">
-                    {{$getImageMedia(attributes: ['class'=> 'w-full rounded-md', 'loading' => 'lazy'])}}
-
-                    @if($imageCopyright)
-                        <small>&copy; {{$replaceParameters($imageCopyright)}}</small>
-                    @endif
-                </div>
-            @endif
-            <div class="w-full px-4 @if($hasImage())md:w-1/2 @else md:w-3/4 @endif">
-                @if($title)
-                    <h2 class="text-center">{{$replaceParameters($title)}}</h2>
+<div @class([
+    'content-block content-block--text-image',
+    $getBackgroundColourClass(),
+])>
+    <div class="container">
+        <div @class([
+            'py-3',
+            'grid grid-cols-1 gap-4 md:gap-x-8 justify-items-start items-center',
+            'md:grid-cols-2' => $hasImage() && $imagePosition !== 'center',
+        ])>
+            <div @class([
+                'max-w-2xl text-balance',
+                'order-2' => $hasImage() && $imagePosition === 'left',
+            ])>
+                @if ($title)
+                    <h2>{{ $replaceParameters($title) }}</h2>
                 @endif
-                @if($text)
-                    <div class="px-2 sm:px-0">
+
+                @if ($text)
+                    <div class="text-base canBeRichEditorContent">
                         {!! $replaceParameters($text) !!}
                     </div>
                 @endif
-                @if($callToActions)
+
+                @if ($callToActions)
                     <div class="flex flex-wrap items-center gap-4 mt-6">
-                        @foreach($callToActions as $callToAction)
+                        @foreach ($callToActions as $callToAction)
                             <x-flexible-call-to-action :data="$callToAction"></x-flexible-call-to-action>
                         @endforeach
                     </div>
                 @endif
             </div>
+
+            @if ($hasImage())
+                <div class="text-right">
+                    {{ $getImageMedia(attributes: ['loading' => 'lazy']) }}
+
+                    @if ($imageCopyright)
+                        <small>&copy; {{ $replaceParameters($imageCopyright) }}</small>
+                    @endif
+                </div>
+            @endif
         </div>
     </div>
 </div>

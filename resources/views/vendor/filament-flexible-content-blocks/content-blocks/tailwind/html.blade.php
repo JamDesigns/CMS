@@ -1,5 +1,5 @@
-<div class="section section--default">
-    <div class="container mx-auto py-4">
+<section class="section section--default">
+    <div class="container">
         {!! $replaceParameters($content) !!}
     </div>
-</div>
+</section>

@@ -1,13 +1,14 @@
-<div class="w-full">
+@props([
+    'class' => '',
+])
+<div id="content-blocks-wrapper" @class([ $class ])>
     @if(is_array($contentBlocks))
         @foreach($contentBlocks ?? [] as $block)
-            <div class="section--{{ isset($block->data()['backgroundColourType']) ?? 'default' }}">
-                {{
-                    $block->withAttributes($attributes->getAttributes())
-                        ->render()
-                        ->with($block->data())
-                }}
-            </div>
+            {{
+                $block->withAttributes($attributes->getAttributes())
+                    ->render()
+                    ->with($block->data())
+            }}
         @endforeach
     @endif
 </div>
