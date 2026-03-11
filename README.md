@@ -1,110 +1,212 @@
-# CMS Blog
+# CMS Blog (Laravel + Filament)
 
-## Introduction
+CMS Blog is a content management system built with **Laravel 10**, **Jetstream**, **Livewire**, and **FilamentPHP v3**.
 
-CMS Blog is developed in Laravel 10, Jetstream with Livewire and Filamentphp 3 with various plugins.
+The project provides an admin panel for managing pages, blog posts, translations, roles and permissions, as well as a public-facing frontend for content delivery.
 
-## Instalation
+This CMS was designed as a modular system using modern Laravel tooling and several ecosystem packages to simplify content management and administration.
 
-Clone the repository
+---
+
+## Tech Stack
+
+Backend
+
+- Laravel 10
+- PHP
+- Jetstream
+- Livewire
+- FilamentPHP v3
+
+Frontend
+
+- Blade
+- TailwindCSS
+- Vite
+
+Additional packages
+
+- Spatie Laravel Permissions
+- Spatie Translatable
+- Filament Flexible Content Blocks
+- Filament Translation Manager
+- Laravel Localization
+- SEO tools
+
+---
+
+## Main Features
+
+- Admin panel built with **FilamentPHP**
+- Role and permission management
+- Multilingual content (English / Spanish)
+- Dynamic page builder using **Flexible Content Blocks**
+- Blog with posts, categories and comments
+- Translation management interface
+- SEO metadata generation
+- Contact form with email notifications
+- Moderation system for blog comments
+- Dynamic page routing
+
+---
+
+## Project Structure
+
+```
+app/
+    Actions
+    Filament
+    Http
+    Models
+    Policies
+
+config/
+database/
+lang/
+lang-custom/
+
+resources/
+    views
+    css
+    js
+
+routes/
+    web.php
+    api.php
+```
+
+The project follows the typical Laravel application structure, extended with **Filament admin resources and plugins**.
+
+---
+
+## Multilingual Support
+
+The CMS supports multiple languages.
+
+Currently available languages:
+
+- English
+- Spanish
+
+Translations are handled using:
+
+- Laravel Localization
+- Filament Translation Manager
+- Spatie Translatable
+
+Language configuration can be found in:
+
+```
+config/laravellocalization.php
+config/filament-translation-manager.php
+config/filament-flexible-content-blocks.php
+```
+
+---
+
+## Installation
+
+Clone the repository:
+
 ```
 git clone https://github.com/JamDesigns/cms
 ```
 
-Before running composer, set up a local server like Laragon
+Navigate to the project folder:
 
-Run composer
+```
+cd cms
+```
+
+Install dependencies:
+
 ```
 composer install
+npm install
 ```
 
-This process performs all the dependency installation, database creation, and a minimum of records creation. These are:
-- The Home, Privacy Policy, Terms and Conditions, and About Us pages.
-- The super admin credentials to access the backend and be able to manage roles, permissions, translations, and users.
-User: admin@cms.test
-Password: password
-- 5 Roles
-- The permissions needed to access the different sections of the backend
-- The category: Uncategorized
+Create environment file:
 
-## Usage
-It has role and permission management, translations, page creation using flexible content blocks and language selector (English and Spanish).
-
-Languages ​​are listed in the following files:
-
-#### ` AppServiceProvider.php `
-```php
-    public function boot(): void
-    {
-        Carbon::setLocale(app()->getLocale());
-        LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
-        $switch
-            ->locales([
-                'es',
-                'en',
-            ]); // also accepts a closure
-        });
-        FilamentTranslationManager::setLocales([
-            'es',
-            'en',
-        ]);
-    }
+```
+cp .env.example .env
 ```
 
-#### ` AdminPanelProvider.php `
-```php
-    ->plugins([
-    // ...
-    SpatieLaravelTranslatablePlugin::make()
-        ->defaultLocales([
-            'es',
-            'en',
-        ]),
-    ]);
+Generate application key:
+
+```
+php artisan key:generate
 ```
 
-#### ` filament-flexible-content-blocks.php `
-```php
-'supported_locales' => [
-        'es',
-        'en',
-    ],
+Run database migrations and seeders:
+
+```
+php artisan migrate --seed
 ```
 
-#### ` filament-translation-manager.php `
-```php
-'locales' => [
-        'es',
-        'en',
-    ],
+Build frontend assets:
+
+```
+npm run build
 ```
 
-#### ` laravellocalization.php `
-```php
-    // ...
-        'en'          => [
-            'name' => 'English',
-            'script' => 'Latn',
-            'native' => 'English',
-            'regional' => 'en_GB'
-        ],
-        //'en-AU'       => ['name' => 'Australian English',     'script' => 'Latn', 'native' => 'Australian English', 'regional' => 'en_AU'],
-        //'en-GB'       => ['name' => 'British English',        'script' => 'Latn', 'native' => 'British English', 'regional' => 'en_GB'],
-        //'en-CA'       => ['name' => 'Canadian English',       'script' => 'Latn', 'native' => 'Canadian English', 'regional' => 'en_CA'],
-        //'en-US'       => ['name' => 'U.S. English',           'script' => 'Latn', 'native' => 'U.S. English', 'regional' => 'en_US'],
-        'es'          => [
-            'name' => 'Spanish',
-            'script' => 'Latn',
-            'native' => 'Español',
-            'regional' => 'es_ES'
-        ],
-    // ...
+Start the development server:
+
 ```
-You can also see a list of the emails you receive from the front-end contact form, as well as the email in your personal or business mailbox (depending on the configuration indicated in .env). To use the SEO included in the generation of flexible content blocks, you need to create a free account at [OpenAI API](https://platform.openai.comg). and put the credentials in the .env file.
+php artisan serve
+```
 
-You can see the comments made on the posts and decide whether to allow the post or not.
-Categories, posts, and pages can be translated into the languages ​​active on the platform.
+---
 
-You can browse the front-end without registering except to post comments on posts.
-All pages related to posts (Blog) do not have access unless there are active posts.
-The URLs of the pages created in the back-end are generated dynamically.
+## Admin Panel
+
+The CMS includes a full **Filament admin panel** where administrators can manage:
+
+- pages
+- blog posts
+- categories
+- translations
+- users
+- roles and permissions
+
+The admin panel is available at:
+
+```
+/admin
+```
+
+---
+
+## Content Management
+
+Administrators can create dynamic pages using **Flexible Content Blocks**, allowing different page layouts and sections to be built without writing code.
+
+Pages can include:
+
+- text blocks
+- images
+- SEO metadata
+- translated content
+
+Blog posts support comments and moderation.
+
+---
+
+## SEO Integration
+
+The CMS includes SEO tools to generate metadata for pages and blog posts.
+
+Optional AI-assisted SEO generation can be configured using OpenAI by setting credentials in the `.env` file.
+
+---
+
+## Educational Purpose
+
+This project was created as a **learning and experimentation project with Laravel and Filament**.
+
+It demonstrates how to build a modern CMS using the Laravel ecosystem, including admin panels, multilingual support and modular content management.
+
+---
+
+## License
+
+MIT
