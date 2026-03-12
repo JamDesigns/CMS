@@ -88,6 +88,29 @@ class PostResource extends Resource
         }
     }
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::where('status', 'published')->count();
+    }
+
+    public static function getNavigationBadgeColor(): ?string
+    {
+        $countTotal = static::getModel()::count();
+        $count = static::getModel()::where('status', !'published')->count();
+        $color = 'success';
+
+        if ($count > 0) {
+            $color = ($count * 100 / $countTotal) > 50 ? 'danger' : 'primary';
+        }
+
+        return $color;
+    }
+
+    public static function getNavigationBadgeTooltip(): ?string
+    {
+        return __('Posts pending publication');
+    }
+
     public static function form(Form $form): Form
     {
         return $form

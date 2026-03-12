@@ -60,6 +60,21 @@ class PageResource extends Resource {
         return parent::getEloquentQuery()->orderBy('id', 'asc');
     }
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return 'success';
+    }
+
+    public static function getNavigationBadgeTooltip(): ?string
+    {
+        return __('Total pages');
+    }
+
     public static function form(Form $form): Form {
         return $form
             ->schema([
