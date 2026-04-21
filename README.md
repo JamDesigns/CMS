@@ -1,56 +1,66 @@
-# CMS Blog (Laravel + Filament)
+# 🧩 CMS Blog (Laravel + Filament)
 
-CMS Blog is a content management system built with **Laravel 10**, **Jetstream**, **Livewire**, and **FilamentPHP v3**.
+Content Management System built with **Laravel 10**, **FilamentPHP v3** and **Livewire**, designed to manage multilingual content, roles, permissions and dynamic pages through a modern admin panel.
 
-The project provides an admin panel for managing pages, blog posts, translations, roles and permissions, as well as a public-facing frontend for content delivery.
-
-This CMS was designed as a modular system using modern Laravel tooling and several ecosystem packages to simplify content management and administration.
+This project showcases how to build a modular CMS using the Laravel ecosystem, focusing on scalability, maintainability and real-world administration workflows.
 
 ---
 
-# Tech Stack
+## 🚀 Key Highlights
 
-## Backend
+- Full admin panel built with **FilamentPHP**
+- Role & permission system using **Spatie Permissions**
+- Multilingual content management (EN / ES)
+- Dynamic page builder with flexible content blocks
+- SEO metadata generation and optional AI-assisted content
+- Clean and modular Laravel architecture
 
-- Laravel 10
+---
+
+## 🛠️ Tech Stack
+
+### Backend
+
 - PHP 8.1+
+- Laravel 10
 - Jetstream
 - Livewire
 - FilamentPHP v3
 
-## Frontend
+### Frontend
 
 - Blade
 - TailwindCSS
 - Vite
 
-## Additional packages
+### Additional Packages
 
 - Spatie Laravel Permissions
 - Spatie Translatable
+- Laravel Localization
 - Filament Flexible Content Blocks
 - Filament Translation Manager
-- Laravel Localization
 - SEO Tools
 
 ---
 
-# Main Features
+## 📦 Main Features
 
-- Admin panel built with **FilamentPHP**
+- Admin panel for managing pages, posts and users
 - Role and permission management
-- Multilingual content (English / Spanish)
-- Dynamic page builder using **Flexible Content Blocks**
-- Blog with posts, categories and comments
+- Multilingual content support
+- Dynamic page builder with reusable content blocks
+- Blog system with categories, comments and moderation
 - Translation management interface
 - SEO metadata generation
 - Contact form with email notifications
-- Moderation system for blog comments
-- Dynamic page routing
+- Dynamic routing for pages
 
 ---
 
-# Project Structure
+## 🧠 Architecture
+
+The project follows a standard Laravel structure, extended with Filament resources and modular components for content management.
 
 ```
 app/
@@ -59,11 +69,6 @@ app/
     Http
     Models
     Policies
-
-config/
-database/
-lang/
-lang-custom/
 
 resources/
     views
@@ -75,26 +80,22 @@ routes/
     api.php
 ```
 
-The project follows the typical Laravel application structure, extended with **Filament admin resources and plugins**.
-
 ---
 
-# Multilingual Support
+## 🌍 Multilingual Support
 
-The CMS supports multiple languages.
-
-Currently available languages:
+Supported languages:
 
 - English
 - Spanish
 
-Translations are handled using:
+Handled using:
 
 - Laravel Localization
 - Filament Translation Manager
 - Spatie Translatable
 
-Language configuration can be found in:
+Configuration files:
 
 ```
 config/laravellocalization.php
@@ -104,85 +105,43 @@ config/filament-flexible-content-blocks.php
 
 ---
 
-# Installation
+## ⚙️ Installation
 
-Clone the repository:
-
-```
+```bash
 git clone https://github.com/JamDesigns/cms
-```
-
-Navigate to the project directory:
-
-```
 cd cms
-```
-
-Install the project:
-
-```
 composer install
 ```
 
-The `composer install` script automatically performs the following tasks:
+The installation process automatically:
 
-- installs PHP dependencies
-- installs Node dependencies
+- installs dependencies
 - builds frontend assets
-- copies `.env.example` to `.env`
-- generates the application key
-- runs database migrations and seeders
-- synchronizes roles and permissions
-- creates the storage symbolic link
+- configures environment
+- runs migrations and seeders
+- sets up roles and permissions
 
-After installation, start the frontend development server:
+Start development servers:
 
-```
+```bash
 npm run dev
-```
-
-Then start Laravel:
-
-```
 php artisan serve
 ```
 
-The application will now be available locally.
-
 ---
 
-# Default Admin Credentials
+## 🔐 Admin Access
 
-After installation, the database seeder creates a default administrator account.
-
-Email:
+Default admin credentials:
 
 ```
 admin@cms.test
-```
-
-Password:
-
-```
 password
 ```
 
-For security reasons, it is recommended to create a new administrator and remove this default user.
+⚠️ It is recommended to create a new admin user and remove the default one.
 
----
-
-# Admin Panel
-
-The CMS includes a full **Filament admin panel** where administrators can manage:
-
-- pages
-- blog posts
-- categories
-- translations
-- users
-- roles and permissions
-
-The admin panel is available at:
+Admin panel available at:
 
 ```
 /admin
@@ -190,28 +149,20 @@ The admin panel is available at:
 
 ---
 
-# Content Management
+## 🧩 Content Management
 
-Administrators can create dynamic pages using **Flexible Content Blocks**, allowing different page layouts and sections to be built without writing code.
-
-Pages can include:
-
-- text blocks
-- images
-- SEO metadata
-- translated content
-
-Blog posts support comments and moderation.
+- Build pages using flexible content blocks
+- Manage blog posts, categories and comments
+- Moderate user-generated content
+- Configure SEO metadata per page/post
 
 ---
 
-# SEO Integration
+## 🤖 SEO & AI Integration
 
-The CMS includes SEO tools to generate metadata for pages and blog posts.
+The CMS supports SEO metadata generation.
 
-Optional AI-assisted SEO generation can be configured using OpenAI by setting credentials in the `.env` file.
-
-Example configuration:
+Optional AI-assisted content generation can be enabled via OpenAI:
 
 ```
 OPENAI_API_KEY=
@@ -220,14 +171,18 @@ OPENAI_ORGANIZATION=
 
 ---
 
-# Educational Purpose
+## 🎯 Purpose
 
-This project was created as a **learning and experimentation project with Laravel and Filament**.
+This project demonstrates how to build a modern CMS with:
 
-It demonstrates how to build a modern CMS using the Laravel ecosystem, including admin panels, multilingual support and modular content management.
+- modular architecture
+- admin panel systems
+- multilingual support
+- real-world content workflows
 
 ---
 
-# License
+## 👤 Author
 
-MIT
+José Ángel Mosquera Rodríguez  
+Senior PHP Backend Developer
